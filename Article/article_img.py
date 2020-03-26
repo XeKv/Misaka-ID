@@ -1,6 +1,5 @@
 import requests
 import re
-import sys
 import os
 import time
 
@@ -22,6 +21,7 @@ def Download():
     # 逐行读取url.txt中的链接文本，
     urlfile = open("./url.txt", "r")
     lines = urlfile.readlines()
+    urlfile.close()
     for line in lines:
         # 重要！！下面这句使用了strip方法
         # 目的是移除line开头和结尾的换行符、空格等
@@ -42,7 +42,7 @@ def Download():
                 f.write(img)
                 f.close
         # try中的语句如果出现异常，则执行except里面的代码
-        except:
+        except Exception:
             # 输出出错的链接到errors.txt,并提示
             data2 = open("./errors.txt", "a", encoding='utf-8')
             data2.write(line+"\n")
@@ -75,7 +75,7 @@ def Getsource():
     # os.system('clear') #for Unix
     os.system('cls')  # for Windows
     #
-    
+
     # PART 1 此为 正则表达式 部分。(写在''里面)。找到规律，利用正则，内容就可以出来 ps.注意表达式里的空格。
     text = re.findall('meta itemprop="image" content="(.*?)"', html.text)
     #
@@ -95,6 +95,7 @@ def Getsource():
         print("http:"+each)
         # 逐行写入保存到文本文件
         data1.write("http:"+each+"\n")
+
 
 def Delfiles():
     while True:
