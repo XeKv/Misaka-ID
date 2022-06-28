@@ -26,8 +26,8 @@ hea = {
 help_info = '''
     -r [--range]       编号检测范围(闭区间,英文逗号分隔) 
                            例如: --range=1,200    表示从 1 检测到 200
-    -p [--prefix]      名称前缀
-    -s [--suffix]      名称后缀
+    -p [--prefix]      名称前缀  默认为"御坂"
+    -s [--suffix]      名称后缀  默认为"号"
     -z [--zfill]       将编号补齐的位数
                            例如: --zfill=5        会将 1 补齐为 00001
     -k [--key]         用于 "server酱" 推送的sckey (push token)
